@@ -8,7 +8,7 @@ resource_local_to_scene = true
 flags = 0
 viewport_path = NodePath("Viewport1")
 
-[node name="Control" type="Control" index="0"]
+[node name="Control" type="Control"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -72,8 +72,8 @@ h_offset = 0.0
 v_offset = 0.0
 doppler_tracking = 0
 projection = 0
-current = false
-fov = 70.0
+current = true
+fov = 45.0
 size = 1.0
 near = 0.05
 far = 100.0
