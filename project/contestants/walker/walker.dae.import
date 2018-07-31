@@ -2,33 +2,33 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/person.dae-acbb1e580f0d81634e72586fbc9eba4d.scn"
+path="res://.import/walker.dae-6f27642e5137fc975c452401d8c87542.scn"
 
 [deps]
 
-source_file="res://contestants/person/person.dae"
-dest_files=[ "res://.import/person.dae-acbb1e580f0d81634e72586fbc9eba4d.scn" ]
+source_file="res://contestants/walker/walker.dae"
+dest_files=[ "res://.import/walker.dae-6f27642e5137fc975c452401d8c87542.scn" ]
 
 [params]
 
-nodes/root_type="KinematicBody"
-nodes/root_name="Person"
+nodes/root_type="Spatial"
+nodes/root_name="Scene Root"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
 materials/location=1
-materials/storage=1
-materials/keep_on_reimport=true
+materials/storage=0
+materials/keep_on_reimport=false
 meshes/compress=true
 meshes/ensure_tangents=true
-meshes/storage=0
+meshes/storage=1
 meshes/light_baking=0
 meshes/lightmap_texel_size=0.1
 external_files/store_in_subdir=false
-animation/import=true
+animation/import=false
 animation/fps=15
 animation/filter_script=""
-animation/storage=1
+animation/storage=false
 animation/keep_custom_tracks=false
 animation/optimizer/enabled=true
 animation/optimizer/max_linear_error=0.05

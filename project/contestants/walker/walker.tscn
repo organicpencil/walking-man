@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://contestants/person/person.dae" type="PackedScene" id=1]
+[ext_resource path="res://contestants/walker/walker.gd" type="Script" id=2]
+[ext_resource path="res://contestants/walker/Walker.mesh" type="ArrayMesh" id=3]
+[ext_resource path="res://contestants/person/walker-idle-loop.anim" type="Animation" id=4]
+[ext_resource path="res://contestants/person/walker-walk-loop.anim" type="Animation" id=5]
+[ext_resource path="res://contestants/person/shape.tscn" type="PackedScene" id=6]
+[ext_resource path="res://contestants/person/camera.tscn" type="PackedScene" id=7]
+
+[node name="Walker" instance=ExtResource( 1 )]
+
+script = ExtResource( 2 )
+
+[node name="BoneAttachment" type="BoneAttachment" parent="person-armature/Skeleton" index="1"]
+
+transform = Transform( 2.18879e-07, -1.42109e-14, -1, 2.29725e-14, 1, 1.42109e-14, 1, -8.87081e-15, 1.50996e-07, 0.56, 0.35, -1.04308e-07 )
+bone_name = "Arm-Right1"
+_sections_unfolded = [ "Transform" ]
+
+[node name="Walker" type="MeshInstance" parent="person-armature/Skeleton/BoneAttachment" index="0"]
+
+transform = Transform( 0.159446, -0.986754, -0.0298672, 0.977508, 0.162038, -0.134984, 0.138036, -0.00767282, 0.990396, -0.0168177, -0.0456762, 0.00540162 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 3 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" parent="." index="1"]
+
+anims/walker-idle-loop = ExtResource( 4 )
+anims/walker-walk-loop = ExtResource( 5 )
+
+[node name="CollisionShape" parent="." index="2" instance=ExtResource( 6 )]
+
+[node name="Camera" parent="." index="3" instance=ExtResource( 7 )]
+
+
