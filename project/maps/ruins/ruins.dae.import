@@ -7,10 +7,7 @@ path="res://.import/ruins.dae-804672dfd7499ce68e7f19c974c898a9.scn"
 [deps]
 
 source_file="res://maps/ruins/ruins.dae"
-source_md5="a8cadfa148f85b97b1ce38b1295a1b52"
-
 dest_files=[ "res://.import/ruins.dae-804672dfd7499ce68e7f19c974c898a9.scn" ]
-dest_md5="4bda61944d0f01c8f6049259d3ac6e9b"
 
 [params]
 

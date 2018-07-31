@@ -7,10 +7,7 @@ path="res://.import/person.dae-acbb1e580f0d81634e72586fbc9eba4d.scn"
 [deps]
 
 source_file="res://contestants/person/person.dae"
-source_md5="5c536e7c18839590735dc92de8b52bb6"
-
 dest_files=[ "res://.import/person.dae-acbb1e580f0d81634e72586fbc9eba4d.scn" ]
-dest_md5="1346064bb8e5767d9f81de0763032ffd"
 
 [params]
 

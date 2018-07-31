@@ -8,10 +8,7 @@ path.etc2="res://.import/wall.png-f738b0b0bf2a6c9a79d12f93d378d176.etc2.stex"
 [deps]
 
 source_file="res://maps/ruins/images/wall.png"
-source_md5="96b58112b6889c9e3fac7986633bdeb3"
-
 dest_files=[ "res://.import/wall.png-f738b0b0bf2a6c9a79d12f93d378d176.s3tc.stex", "res://.import/wall.png-f738b0b0bf2a6c9a79d12f93d378d176.etc2.stex" ]
-dest_md5="1ceca9a51f4e2bd49242737c4cb90dd2"
 
 [params]
 

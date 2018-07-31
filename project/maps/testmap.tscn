@@ -9,6 +9,7 @@ extents = Vector3( 5, 1, 5 )
 
 [sub_resource type="CubeMesh" id=2]
 
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
 size = Vector3( 10, 2, 10 )
 subdivide_width = 0
 subdivide_height = 0

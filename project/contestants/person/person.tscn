@@ -8,7 +8,7 @@
 radius = 0.3
 height = 1.2
 
-[node name="Person" instance=ExtResource( 1 )]
+[node name="Person" index="0" instance=ExtResource( 1 )]
 
 script = ExtResource( 2 )
 
