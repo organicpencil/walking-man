@@ -5,6 +5,9 @@ var mouselook = Vector2()
 var controls = {"forward": false, "back": false, "left": false, "right": false, "primary": false, "secondary": false}
 var input_prefix = ""
 
+func _ready():
+	$AnimationPlayer2.play("person-idle-arms-loop")
+
 func _physics_process(delta):
 	rotate_y(-mouselook.x)
 	$Camera.rotation.x = clamp($Camera.rotation.x - mouselook.y, -1.57, 1.57)
