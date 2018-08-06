@@ -1,5 +1,6 @@
 extends KinematicBody
 
+var hp = 5
 var speed = 2.0
 var mouselook = Vector2()
 var controls = {"forward": false, "back": false, "left": false, "right": false, "primary": false, "secondary": false}
@@ -7,6 +8,14 @@ var input_prefix = ""
 
 func _ready():
 	$AnimationPlayer2.play("person-idle-arms-loop")
+
+func damage(value):
+	if hp <= 0:
+		return
+
+	hp -= value
+	if hp <= 0:
+		queue_free()
 
 func _physics_process(delta):
 	rotate_y(-mouselook.x)

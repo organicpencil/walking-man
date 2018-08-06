@@ -1,5 +1,6 @@
 extends KinematicBody
 
+var hp = 5
 var speed = 0.4
 var mouselook = Vector2()
 var controls = {"forward": false, "back": false, "left": false, "right": false, "primary": false, "secondary": false}
@@ -10,6 +11,14 @@ var weapons = []
 
 func _ready():
 	$AnimationPlayer.play("walker-idle-loop", 0.1)
+
+func damage(value):
+	if hp <= 0:
+		return
+
+	hp -= value
+	if hp <= 0:
+		queue_free()
 
 func fire():
 	if weapons.size() == 0:
@@ -76,4 +85,4 @@ func _physics_process(delta):
 
 	if controls['primary'] and shoot_timer == 0.0:
 		fire()
-		shoot_timer = 0.075
+		shoot_timer = 0.15

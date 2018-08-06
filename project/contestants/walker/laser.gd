@@ -24,7 +24,7 @@ func _physics_process(delta):
 		var other = result["collider"]
 
 		if other.has_method("damage"):
-			other.damage(5000)
+			other.damage(1)
 
 		var explosion = explosion_scn.instance()
 		get_viewport().add_child(explosion)
