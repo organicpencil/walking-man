@@ -1,17 +1,18 @@
 extends KinematicBody
 
 var hp = 5
-var speed = 0.4
+var speed = 0.8
 var mouselook = Vector2()
 var controls = {"forward": false, "back": false, "left": false, "right": false, "primary": false, "secondary": false}
 var input_prefix = ""
 var shoot_timer = 0.0
 var next_weapon = 0
 var weapons = []
+var speed_factor = 1.0
 onready var cam = get_node("Camera")
 
 func _ready():
-	$AnimationPlayer.play("walker-idle-loop", 0.1)
+	$AnimationPlayer.play("wheelchair-idle-loop", 0.1)
 
 	if !has_node("KeyboardMouse"):
 		controls['forward'] = true
@@ -39,13 +40,17 @@ func _physics_process(delta):
 	var look = 0.0
 	if controls['left']:
 		look += 0.01
+		$"WheelChair/Wheel-BL".rotate_x(0.02 * speed_factor)
+		$"WheelChair/Wheel-BR".rotate_x(-0.02 * speed_factor)
 	if controls['right']:
 		look -= 0.01
+		$"WheelChair/Wheel-BL".rotate_x(-0.02 * speed_factor)
+		$"WheelChair/Wheel-BR".rotate_x(0.02 * speed_factor)
 
 	rotate_y(look)
 
-	$Camera.rotation.y = clamp($Camera.rotation.y - mouselook.x, -1.57, 1.57)
-	$Camera.rotation.x = clamp($Camera.rotation.x - mouselook.y, -1.57, 1.57)
+	cam.rotation.y = clamp(cam.rotation.y - mouselook.x, -1.57, 1.57)
+	cam.rotation.x = clamp(cam.rotation.x - mouselook.y, -1.57, 1.57)
 	mouselook = Vector2()
 
 	var move = Vector3()
@@ -72,17 +77,22 @@ func _physics_process(delta):
 	move.y = 0
 	move = move.normalized()
 
-	if anim == "walker-walk-loop" and pos > 0.2 and pos < 0.8:
-		move_and_slide(move * speed + Vector3(0, -5, 0), Vector3(0, 1, 0))
-	else:
-		move_and_slide(Vector3(0, -5, 0), Vector3(0, 1, 0))
+	#if anim == "wheelchair-move-loop" and pos > 0.2 and pos < 0.8:
+	move_and_slide(move * speed * speed_factor + Vector3(0, -5, 0), Vector3(0, 1, 0))
+	#else:
+	#	move_and_slide(Vector3(0, -5, 0), Vector3(0, 1, 0))
+	$AnimationPlayer.playback_speed = speed_factor
 
-	if is_on_floor() and move.length():
-		if anim != "walker-walk-loop":
-			$AnimationPlayer.play("walker-walk-loop")
+	if move.length():
+		#speed_factor = clamp(speed_factor + delta, 1.0, 3.0)
+		$"WheelChair/Wheel-BL".rotate_x(-0.02 * speed_factor)
+		$"WheelChair/Wheel-BR".rotate_x(-0.02 * speed_factor)
+		if anim != "wheelchair-move-loop":
+			$AnimationPlayer.play("wheelchair-move-loop")
 
-	elif anim != "walker-idle-loop":
-		$AnimationPlayer.play("walker-idle-loop", 0.1)
+	elif anim != "wheelchair-idle-loop":
+		#speed_factor = 1.0
+		$AnimationPlayer.play("wheelchair-idle-loop", 0.1)
 
 	if shoot_timer > 0.0:
 		shoot_timer = max(shoot_timer - delta, 0.0)

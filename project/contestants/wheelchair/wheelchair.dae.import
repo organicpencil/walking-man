@@ -11,7 +11,7 @@ dest_files=[ "res://.import/wheelchair.dae-6a881533a04cf64e9b5ecf031902695d.scn"
 
 [params]
 
-nodes/root_type="KinematicBody"
+nodes/root_type="Spatial"
 nodes/root_name="WheelChair"
 nodes/root_scale=1.0
 nodes/custom_script=""
@@ -25,7 +25,7 @@ meshes/storage=0
 meshes/light_baking=0
 meshes/lightmap_texel_size=0.1
 external_files/store_in_subdir=false
-animation/import=true
+animation/import=false
 animation/fps=15
 animation/filter_script=""
 animation/storage=false

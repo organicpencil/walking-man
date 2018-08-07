@@ -5,9 +5,13 @@ var speed = 2.0
 var mouselook = Vector2()
 var controls = {"forward": false, "back": false, "left": false, "right": false, "primary": false, "secondary": false}
 var input_prefix = ""
+onready var cam = get_node("Camera")
 
 func _ready():
 	$AnimationPlayer2.play("person-idle-arms-loop")
+
+	if !has_node("KeyboardMouse"):
+		controls['forward'] = true
 
 func damage(value):
 	if hp <= 0:

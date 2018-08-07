@@ -13,7 +13,7 @@ func _unhandled_input(event):
 		get_tree().quit()
 
 func _process(delta):
-	get_viewport().get_node("Control/Viewport1/Camera").global_transform = get_node("../Camera").global_transform
+	get_viewport().get_node("Control/Viewport1/Camera").global_transform = get_parent().cam.global_transform
 
 	var controls = get_parent().controls
 	controls['forward'] = Input.is_action_pressed(input_prefix + "forward")
